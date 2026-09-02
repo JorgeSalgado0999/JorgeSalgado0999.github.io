@@ -7,7 +7,7 @@
       "accent": {
         "role": "primary",
         "displayName": "Beacon Cyan",
-        "canonical": "#0891b2",
+        "canonical": "#0e7490",
         "darkCanonical": "#22d3ee",
         "tonalRamp": ["#164e63", "#155e75", "#0e7490", "#0891b2", "#06b6d4", "#22d3ee", "#a5f3fc", "#ecfeff"]
       },
@@ -89,7 +89,7 @@
       "refersTo": "button-primary",
       "description": "Solid accent CTA — used once per section at most (e.g. hero 'Download CV').",
       "html": "<button class=\"ds-btn-primary\">Download CV</button>",
-      "css": ".ds-btn-primary { background: #0891b2; color: #ffffff; font-weight: 600; font-size: 14px; padding: 10px 20px; border: none; border-radius: 9999px; cursor: pointer; transition: transform 0.2s ease; } .ds-btn-primary:hover { transform: scale(1.05); } .ds-btn-primary:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }"
+      "css": ".ds-btn-primary { background: #0e7490; color: #ffffff; font-weight: 600; font-size: 14px; padding: 10px 20px; border: none; border-radius: 9999px; cursor: pointer; transition: transform 0.2s ease; } .ds-btn-primary:hover { transform: scale(1.05); } .ds-btn-primary:focus-visible { outline: 2px solid #0e7490; outline-offset: 2px; }"
     },
     {
       "name": "Secondary Button",
@@ -97,7 +97,7 @@
       "refersTo": "button-secondary",
       "description": "Outline CTA — paired next to a primary button (e.g. 'Contact me').",
       "html": "<button class=\"ds-btn-secondary\">Contact me</button>",
-      "css": ".ds-btn-secondary { background: #ffffff; color: #0f172a; font-weight: 600; font-size: 14px; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 9999px; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; } .ds-btn-secondary:hover { border-color: #0891b2; color: #0891b2; } .ds-btn-secondary:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }"
+      "css": ".ds-btn-secondary { background: #ffffff; color: #0f172a; font-weight: 600; font-size: 14px; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 9999px; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; } .ds-btn-secondary:hover { border-color: #0e7490; color: #0e7490; } .ds-btn-secondary:focus-visible { outline: 2px solid #0e7490; outline-offset: 2px; }"
     },
     {
       "name": "Skill Chip",
@@ -105,7 +105,7 @@
       "refersTo": "chip",
       "description": "Small pill tag for a skill/technology name; inverts to solid accent on hover.",
       "html": "<span class=\"ds-chip\">TypeScript</span>",
-      "css": ".ds-chip { display: inline-block; background: #eef2f6; color: #0f172a; font-size: 14px; padding: 4px 12px; border-radius: 9999px; transition: background 0.2s ease, color 0.2s ease; } .ds-chip:hover { background: #0891b2; color: #ffffff; }"
+      "css": ".ds-chip { display: inline-block; background: #eef2f6; color: #0f172a; font-size: 14px; padding: 4px 12px; border-radius: 9999px; transition: background 0.2s ease, color 0.2s ease; } .ds-chip:hover { background: #0e7490; color: #ffffff; }"
     },
     {
       "name": "Content Card",
@@ -113,7 +113,7 @@
       "refersTo": "card",
       "description": "Generic bordered container used for skill categories, hobbies, contact links.",
       "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Frontend</h3><p class=\"ds-card-body\">React, Next.js, Angular</p></div>",
-      "css": ".ds-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; } .ds-card-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0891b2; margin: 0 0 12px; } .ds-card-body { font-size: 16px; color: #475569; margin: 0; }"
+      "css": ".ds-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; } .ds-card-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0e7490; margin: 0 0 12px; } .ds-card-body { font-size: 16px; color: #475569; margin: 0; }"
     },
     {
       "name": "Nav Link",
@@ -121,7 +121,7 @@
       "refersTo": "nav-link",
       "description": "Sticky-nav anchor link with active/inactive/hover states driven by scroll position.",
       "html": "<button class=\"ds-nav-link ds-nav-link--active\">About</button>",
-      "css": ".ds-nav-link { background: none; border: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 9999px; color: #475569; cursor: pointer; transition: color 0.2s ease; } .ds-nav-link:hover { color: #0f172a; } .ds-nav-link--active { color: #0891b2; }"
+      "css": ".ds-nav-link { background: none; border: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 9999px; color: #475569; cursor: pointer; transition: color 0.2s ease; } .ds-nav-link:hover { color: #0f172a; } .ds-nav-link--active { color: #0e7490; }"
     }
   ],
   "narrative": {

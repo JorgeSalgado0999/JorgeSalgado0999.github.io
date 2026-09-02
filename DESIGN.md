@@ -7,7 +7,7 @@ colors:
   surface: "#ffffff"
   surface-muted: "#eef2f6"
   border: "#e2e8f0"
-  accent: "#0891b2"
+  accent: "#0e7490"
   accent-foreground: "#ffffff"
   muted-foreground: "#475569"
 typography:
@@ -97,7 +97,7 @@ Light and dark are equally first-class — the palette was designed dark-first (
 Built from two adjacent Tailwind scales — slate for every neutral, cyan for the single accent — so light and dark are each other's mirror image, not independently art-directed.
 
 ### Primary
-- **Beacon Cyan** (`accent`, light `#0891b2` / dark `#22d3ee`): the only saturated color in the system. Active nav link, primary button fill, focus/hover borders, icon accents, section-category labels (e.g. "LANGUAGES", "FRONTEND" in Skills).
+- **Beacon Cyan** (`accent`, light `#0e7490` / dark `#22d3ee`): the only saturated color in the system. Active nav link, primary button fill, focus/hover borders, icon accents, section-category labels (e.g. "LANGUAGES", "FRONTEND" in Skills). Light-mode value is Tailwind `cyan-700` rather than `cyan-600` specifically so it clears WCAG AA (4.5:1) as text color, not just as a fill — see The Legible Beacon Rule below.
 - **On-Beacon** (`accent-foreground`, light `#ffffff` / dark `#0b1220`): text/icon color placed on top of a solid Beacon Cyan fill (primary button label, avatar-frame contrast).
 
 ### Neutral
@@ -112,6 +112,8 @@ Built from two adjacent Tailwind scales — slate for every neutral, cyan for th
 **The One Voice Rule.** Beacon Cyan appears on nav highlights, one button per view, icons, and labels — never as a background fill larger than a chip. If a design needs "more color," reach for surface/surface-muted contrast, not more cyan.
 
 **The Paired Palette Rule.** Every token above ships as a light/dark pair that swaps together via the `.dark` class. Never hand-pick just one half of a pair for a new component — if you need `surface` in dark mode, `border` and `foreground` must also resolve to their dark pair in the same view.
+
+**The Legible Beacon Rule.** `accent` is used as real text color (nav active state, category labels, eyebrows), not just as a fill — so it must clear WCAG AA's 4.5:1 text contrast against `background`/`surface` in both themes, not just the 3:1 non-text threshold. This is why light-mode `accent` is `cyan-700` (`#0e7490`, ~5:1) rather than the brighter `cyan-600` (`#0891b2`, ~3.5:1) — a brighter accent is a regression, not a refresh, unless it's re-verified against this ratio.
 
 ## Typography
 
