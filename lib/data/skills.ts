@@ -36,7 +36,7 @@ export const skillCategories: { key: SkillCategoryKey; items: string[] }[] = [
 export const experience = [
   {
     company: "Neostella",
-    period: { en: "2024 — Present", es: "2024 — Presente" },
+    period: { en: "Jul 2025 — Present", es: "Jul 2025 — Presente" },
     role: { en: "Tech Lead", es: "Tech Lead" },
     description: {
       en: "Greenfield Data Warehouse architecture, custom AI-agent tooling, multi-environment CI/CD.",
