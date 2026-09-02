@@ -2,16 +2,25 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, Download, Mail, MapPin } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+const LINE_EASE = [0.65, 0, 0.35, 1] as const;
 
 export function Hero() {
   const { t } = useLanguage();
   const [photoFailed, setPhotoFailed] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+  const lineVariants = {
+    hidden: { clipPath: "inset(0 100% 0 0)" },
+    visible: { clipPath: "inset(0 0% 0 0)" },
+  };
+  const lineDuration = shouldReduceMotion ? 0 : 0.4;
 
   return (
     <section
@@ -32,21 +41,54 @@ export function Hero() {
       </div>
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-            {t.hero.greeting}
-          </p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            {t.hero.name}
-          </h1>
-          <p className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl">
+        <div>
+          <motion.h1
+            initial={shouldReduceMotion ? "visible" : "hidden"}
+            animate="visible"
+            variants={lineVariants}
+            transition={{ duration: lineDuration, ease: LINE_EASE }}
+            className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+          >
+            <span className="text-muted-foreground">{"<"}</span>
+            {t.hero.greeting}{" "}
+            <span className="text-accent">{t.hero.name}</span>
+            <span className="text-muted-foreground">{"!>"}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={shouldReduceMotion ? "visible" : "hidden"}
+            animate="visible"
+            variants={lineVariants}
+            transition={{
+              duration: lineDuration,
+              delay: shouldReduceMotion ? 0 : 0.35,
+              ease: LINE_EASE,
+            }}
+            className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl"
+          >
+            <span className="text-muted-foreground/60">{"<"}</span>
             {t.hero.role}
-          </p>
-          <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
+            <span className="text-muted-foreground/60">{">"}</span>
+            <span
+              aria-hidden
+              className="ml-1 inline-block h-[0.9em] w-[2px] translate-y-[0.15em] bg-accent align-middle"
+              style={
+                shouldReduceMotion
+                  ? { opacity: 1 }
+                  : {
+                      opacity: 0,
+                      animationName: "hero-cursor-blink",
+                      animationDuration: "0.9s",
+                      animationTimingFunction: "steps(1)",
+                      animationDelay: "0.75s",
+                      animationIterationCount: 1,
+                      animationFillMode: "forwards",
+                    }
+              }
+            />
+          </motion.p>
+
+          <p className="mt-4 flex items-center gap-1.5 text-sm text-muted-foreground">
             <MapPin size={16} className="text-accent" />
             {t.hero.location}
           </p>
@@ -68,7 +110,7 @@ export function Hero() {
               {t.hero.ctaContact}
             </button>
           </div>
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
@@ -93,6 +135,25 @@ export function Hero() {
               />
             )}
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : 0.85 }}
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-border/60 pt-6 lg:col-span-2"
+        >
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            {t.hero.credibilityLabel}
+          </span>
+          {t.hero.credibilityItems.map((item) => (
+            <span
+              key={item}
+              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item}
+            </span>
+          ))}
         </motion.div>
       </div>
 

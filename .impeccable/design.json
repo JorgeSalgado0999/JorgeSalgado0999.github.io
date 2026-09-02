@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-02T18:05:44Z",
+  "generatedAt": "2026-09-02T19:30:00Z",
   "title": "Design System: Jorge Salgado Portfolio",
   "extensions": {
     "colorMeta": {
@@ -74,7 +74,9 @@
       { "name": "scroll-reveal", "value": "opacity 0->1, translateY 16px->0, duration 0.4-0.5s, viewport once:true", "purpose": "Section and card entrance as the visitor scrolls to them." },
       { "name": "hero-blob-drift", "value": "scale [1,1.15,1], opacity [0.5,0.8,0.5], duration 10-12s, repeat Infinity, ease easeInOut", "purpose": "Ambient background motion behind the hero, the only continuous/looping animation in the system." },
       { "name": "hover-lift", "value": "translateY -4px", "purpose": "Card and hobby-tile hover." },
-      { "name": "hover-scale", "value": "scale 1.05", "purpose": "Primary button hover." }
+      { "name": "hover-scale", "value": "scale 1.05", "purpose": "Primary button hover." },
+      { "name": "hero-typed-reveal", "value": "clip-path inset(0 100% 0 0) -> inset(0 0% 0 0), duration 0.4s per line, stagger 0.35s, ease cubic-bezier(0.65,0,0.35,1), gated by useReducedMotion()", "purpose": "One-time bracket-wipe reveal of the hero name/role lines on load. Real text stays in the DOM throughout." },
+      { "name": "hero-cursor-blink", "value": "CSS @keyframes, opacity 0/1 x3 over 0.9s steps(1), delay 0.75s, iteration-count 1, fill-mode forwards (ends steady-visible)", "purpose": "Finite blink after the hero typed reveal finishes, then settles — not a second continuous loop alongside hero-blob-drift." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -122,6 +124,13 @@
       "description": "Sticky-nav anchor link with active/inactive/hover states driven by scroll position.",
       "html": "<button class=\"ds-nav-link ds-nav-link--active\">About</button>",
       "css": ".ds-nav-link { background: none; border: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 9999px; color: #475569; cursor: pointer; transition: color 0.2s ease; } .ds-nav-link:hover { color: #0f172a; } .ds-nav-link--active { color: #0e7490; }"
+    },
+    {
+      "name": "Credibility Strip",
+      "kind": "custom",
+      "description": "Muted evidence row at the bottom of the hero: an uppercase label followed by plain-text certification/employer names. No logos, no icons, no fabricated items — every entry must trace to PRODUCT.md's Evidence section.",
+      "html": "<div class=\"ds-credibility\"><span class=\"ds-credibility-label\">AWS Certified &middot; Experience at</span><span class=\"ds-credibility-item\">AWS Cloud Practitioner</span><span class=\"ds-credibility-item\">Neostella</span></div>",
+      "css": ".ds-credibility { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 32px; border-top: 1px solid #e2e8f0; padding-top: 24px; } .ds-credibility-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #475569; } .ds-credibility-item { font-size: 14px; font-weight: 600; color: #475569; transition: color 0.2s ease; } .ds-credibility-item:hover { color: #0f172a; }"
     }
   ],
   "narrative": {
@@ -140,19 +149,25 @@
       { "name": "The Single Voice Rule", "body": "Inter carries every role. A second typeface is never introduced for \"personality\" — personality comes from color and motion instead.", "section": "typography" },
       { "name": "The Alternating Tide Rule", "body": "Consecutive sections alternate between background and surface tone. This is the only seam between sections other than the wave dividers — there is never a hard border between two stacked sections.", "section": "layout" },
       { "name": "The One Shadow Rule", "body": "Exactly one shadow exists in the system: a soft shadow-xl on the hero's circular portrait frame. It is not a pattern to extend to cards, buttons, or anything else.", "section": "elevation" },
-      { "name": "The Pill-or-Panel Rule", "body": "Every interactive or atomic element is fully rounded (pill/circle). Every content container uses one consistent 16px radius. No other radius value is used anywhere.", "section": "shapes" }
+      { "name": "The Pill-or-Panel Rule", "body": "Every interactive or atomic element is fully rounded (pill/circle). Every content container uses one consistent 16px radius. No other radius value is used anywhere.", "section": "shapes" },
+      { "name": "The Legible Beacon Rule", "body": "accent is used as real text color (nav active state, category labels, eyebrows), not just as a fill — so it must clear WCAG AA's 4.5:1 text contrast against background/surface in both themes. Light-mode accent is cyan-700 (#0e7490, ~5:1) rather than cyan-600 (#0891b2, ~3.5:1) for this reason.", "section": "colors" },
+      { "name": "The One Typed Moment Rule", "body": "The bracket-wipe-and-cursor reveal belongs to the hero's name/role only. Don't reuse it on other sections' headings — it's a one-time entrance for the page's single most important line, not a system-wide text-reveal style.", "section": "components" }
     ],
     "dos": [
       "Do spend Beacon Cyan rarely and deliberately — one nav highlight, one primary action, an icon, a label.",
       "Do alternate background/surface tone section-by-section instead of adding a divider line between sections.",
       "Do use pill radius for anything a visitor clicks or toggles, and the 16px card radius for anything a visitor reads inside.",
-      "Do keep all motion purposeful and respect prefers-reduced-motion."
+      "Do keep all motion purposeful and respect prefers-reduced-motion.",
+      "Do theme browser chrome (selection, focus ring, caret) from the palette."
     ],
     "donts": [
       "Don't add a second shadow anywhere.",
       "Don't introduce a second typeface.",
       "Don't use Beacon Cyan as a background fill for anything larger than a chip or button.",
-      "Don't put a solid border between two stacked sections."
+      "Don't put a solid border between two stacked sections.",
+      "Don't rely on the global prefers-reduced-motion CSS override alone for Framer Motion elements — gate them explicitly with useReducedMotion().",
+      "Don't reuse the hero's bracket-wipe-and-cursor treatment on any other heading.",
+      "Don't add a Credibility Strip item that isn't already documented as real evidence in PRODUCT.md."
     ]
   }
 }

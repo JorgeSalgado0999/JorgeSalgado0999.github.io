@@ -16,6 +16,8 @@ export type Dictionary = {
     ctaCv: string;
     ctaContact: string;
     scrollHint: string;
+    credibilityLabel: string;
+    credibilityItems: string[];
   };
   about: {
     title: string;
@@ -79,6 +81,15 @@ export const dictionaries: Record<"en" | "es", Dictionary> = {
       ctaCv: "Download CV",
       ctaContact: "Contact me",
       scrollHint: "Scroll to explore",
+      credibilityLabel: "AWS Certified · Experience at",
+      credibilityItems: [
+        "AWS Cloud Practitioner",
+        "AWS Developer",
+        "Neostella",
+        "IBM",
+        "iNBest",
+        "Bradescard",
+      ],
     },
     about: {
       title: "About Me",
@@ -172,6 +183,15 @@ export const dictionaries: Record<"en" | "es", Dictionary> = {
       ctaCv: "Descargar CV",
       ctaContact: "Contáctame",
       scrollHint: "Desplázate para explorar",
+      credibilityLabel: "Certificado AWS · Experiencia en",
+      credibilityItems: [
+        "AWS Cloud Practitioner",
+        "AWS Developer",
+        "Neostella",
+        "IBM",
+        "iNBest",
+        "Bradescard",
+      ],
     },
     about: {
       title: "Sobre mí",

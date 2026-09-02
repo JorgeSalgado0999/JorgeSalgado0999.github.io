@@ -179,16 +179,31 @@ Borders are always 1px solid `border`, with one meaningful variant: the Projects
 ### Wave Divider (signature component)
 An inline SVG wave (viewBox `1440×120`), colored via `currentColor` to always match the section it's transitioning *into*, placed at the top of an alternating-tone section. It is the system's one purely decorative element and the most direct visual expression of "Night Harbor" — reserve it for major tone transitions (About, Hobbies), not every section boundary, so it stays a signature rather than wallpaper.
 
+### Hero Typed Reveal (signature component)
+The hero's name and role render as two bracket-wrapped lines (`<Hi, I'm Jorge Salgado!>`, `<FullStack Developer | Team Leader>`) that reveal left-to-right via a `clip-path` wipe, staggered so both finish inside ~800ms — fast enough that a recruiter reading the page never perceives it as a delay. A single cursor bar blinks three times after the second line finishes, then settles to a steady visible bar; it does not blink forever, keeping the hero blob's ambient drift as the system's only continuous animation. The full text is real DOM content throughout — screen readers and crawlers see it immediately regardless of the visual wipe. No monospace font and no line-number gutter: the "typed code" feeling comes from the brackets and the wipe alone, not a costume font (see The Single Voice Rule) or decorative numbering.
+
+**The One Typed Moment Rule.** This reveal treatment belongs to the hero's name/role only. Don't reuse the bracket-wipe-cursor pattern on other sections' headings — it's a one-time entrance for the page's single most important line, not a system-wide text-reveal style.
+
+### Credibility Strip
+A single muted row at the bottom of the hero, below the fold line but still in the initial viewport on most screens: a small uppercase label (`AWS Certified · Experience at`) followed by plain-text items — certifications and real former/current employer names, `muted-foreground`, no logos or icons. Fades in last (after both typed lines settle) since it's supporting evidence, not the primary message. Every item must be a real, already-documented fact from `PRODUCT.md`'s Evidence section — this strip is retired the day it would require inventing a logo or a claim to fill it.
+
+### Browser Chrome
+Text selection, focus rings, and the text caret are themed from `accent`/`accent-foreground` globally (`::selection`, `:focus-visible`, `caret-color`) rather than left at browser defaults. Any new interactive element inherits this automatically — don't override `:focus-visible` locally unless the element sits on a surface where `accent` genuinely fails contrast.
+
 ## Do's and Don'ts
 
 ### Do:
 - **Do** spend Beacon Cyan rarely and deliberately — one nav highlight, one primary action, an icon, a label. Its scarcity is what makes it register.
 - **Do** alternate `background`/`surface` tone section-by-section (The Alternating Tide Rule) instead of adding a divider line between sections.
 - **Do** use pill radius for anything a visitor clicks or toggles, and the 16px card radius for anything a visitor reads inside.
-- **Do** keep all motion purposeful and respect `prefers-reduced-motion` (already wired globally): scroll-triggered fade/lift once per element, the hero blob's slow ambient drift, and hover micro-interactions (button scale, card lift, chip fill) are the complete motion vocabulary.
+- **Do** keep all motion purposeful and respect `prefers-reduced-motion`: scroll-triggered fade/lift once per element, the hero blob's slow ambient drift, the hero's one-time typed-line reveal, and hover micro-interactions (button scale, card lift, chip fill) are the complete motion vocabulary.
+- **Do** theme browser chrome (selection, focus ring, caret) from the palette — see Browser Chrome above. It's the cheapest signal a page was actually built, not assembled from defaults.
 
 ### Don't:
 - **Don't** add a second shadow anywhere. The hero portrait's `shadow-xl` is a one-time, deliberate exception, not the start of a pattern.
 - **Don't** introduce a second typeface. Inter carries display, headline, body, and label roles by size and weight alone.
 - **Don't** use Beacon Cyan as a background fill for anything larger than a chip or button.
 - **Don't** put a solid border between two stacked sections — the tone alternation and wave dividers are the only seams.
+- **Don't** rely on the global `prefers-reduced-motion` CSS override alone for Framer Motion elements — it catches plain CSS `animation`/`transition`, not Framer's JS-driven transforms. Gate those explicitly with `useReducedMotion()`, as the hero reveal does.
+- **Don't** reuse the hero's bracket-wipe-and-cursor treatment on any other heading — see The One Typed Moment Rule above.
+- **Don't** add an item to the Credibility Strip that isn't already documented as real evidence in `PRODUCT.md`.
