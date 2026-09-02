@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-02T21:15:00Z",
+  "generatedAt": "2026-09-02T21:45:00Z",
   "title": "Design System: Jorge Salgado Portfolio",
   "extensions": {
     "colorMeta": {
@@ -136,9 +136,9 @@
     {
       "name": "Experience Accordion Toggle",
       "kind": "custom",
-      "description": "'Show more'/'Show less' text button under each Experience entry's condensed description; chevron rotates 180 on open, reveals a bullet list of resume-backed highlights.",
-      "html": "<button class=\"ds-exp-toggle\" aria-expanded=\"false\">Show more <svg class=\"ds-exp-chevron\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"/></svg></button>",
-      "css": ".ds-exp-toggle { display: inline-flex; align-items: center; gap: 4px; background: none; border: none; font-size: 14px; font-weight: 600; color: #0e7490; cursor: pointer; padding: 0; } .ds-exp-chevron { transition: transform 0.2s ease; } .ds-exp-toggle[aria-expanded='true'] .ds-exp-chevron { transform: rotate(180deg); }"
+      "description": "'Show more (+N)'/'Show less' text button under each Experience entry's condensed description; chevron rotates 180 on open, underlines on hover, reveals a bullet list of resume-backed highlights. aria-label includes role+company (not just the shared visible text) and vertical padding clears the 44px touch target -- both added after a /impeccable critique pass.",
+      "html": "<button class=\"ds-exp-toggle\" aria-expanded=\"false\" aria-label=\"Show more — Tech Lead, Neostella\">Show more (+4) <svg class=\"ds-exp-chevron\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"/></svg></button>",
+      "css": ".ds-exp-toggle { display: inline-flex; align-items: center; gap: 4px; background: none; border: none; font-size: 14px; font-weight: 600; color: #0e7490; cursor: pointer; padding: 12px 0; } .ds-exp-toggle:hover { text-decoration: underline; text-underline-offset: 2px; } .ds-exp-chevron { transition: transform 0.2s ease; } .ds-exp-toggle[aria-expanded='true'] .ds-exp-chevron { transform: rotate(180deg); }"
     }
   ],
   "narrative": {

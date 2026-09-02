@@ -65,15 +65,23 @@ export function Experience() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {job.description[locale]}
                 </p>
+                {job.note && (
+                  <p className="mt-1 text-xs italic text-muted-foreground/80">
+                    {job.note[locale]}
+                  </p>
+                )}
 
                 <button
                   type="button"
                   onClick={() => toggle(i)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
-                  className="mt-2 flex items-center gap-1 text-sm font-semibold text-accent"
+                  aria-label={`${isOpen ? t.experience.showLess : t.experience.showMore} — ${job.role[locale]}, ${job.company}`}
+                  className="mt-2 flex items-center gap-1 py-3 text-sm font-semibold text-accent hover:underline underline-offset-2"
                 >
-                  {isOpen ? t.experience.showLess : t.experience.showMore}
+                  {isOpen
+                    ? t.experience.showLess
+                    : `${t.experience.showMore} (+${job.highlights[locale].length})`}
                   <ChevronDown
                     size={14}
                     className={`transition-transform ${isOpen ? "rotate-180" : ""}`}

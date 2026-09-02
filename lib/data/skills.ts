@@ -111,6 +111,10 @@ export const experience = [
       en: "Legacy-to-SQL migration, custom authentication and RBAC.",
       es: "Migración de legacy a SQL, autenticación y RBAC personalizados.",
     },
+    note: {
+      en: "University internship — earned through prior experience, overlapping with the iNBest role.",
+      es: "Prácticas profesionales universitarias — obtenidas por experiencia previa, en paralelo con el rol en iNBest.",
+    },
     highlights: {
       en: [
         "Managed the full-cycle migration from Legacy Access to a SQL database (React frontend, Express backend).",
