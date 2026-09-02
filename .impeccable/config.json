@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#0b1220",
+        "createdAt": "2026-09-02T20:33:21.663Z",
+        "reason": "restates DESIGN.md's dark-mode background token; next/og ImageResponse (Satori) can't consume CSS custom properties, so app/icon.tsx must hardcode the literal value"
+      }
+    ]
+  }
+}
