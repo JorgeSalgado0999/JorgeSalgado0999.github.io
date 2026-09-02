@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-02T18:05:44Z",
+  "title": "Design System: Jorge Salgado Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Beacon Cyan",
+        "canonical": "#0891b2",
+        "darkCanonical": "#22d3ee",
+        "tonalRamp": ["#164e63", "#155e75", "#0e7490", "#0891b2", "#06b6d4", "#22d3ee", "#a5f3fc", "#ecfeff"]
+      },
+      "accent-foreground": {
+        "role": "primary",
+        "displayName": "On-Beacon",
+        "canonical": "#ffffff",
+        "darkCanonical": "#0b1220"
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Pale Mist / Deep Harbor",
+        "canonical": "#f8fafc",
+        "darkCanonical": "#0b1220",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#e2e8f0", "#f8fafc"]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Ink Navy / Moonlit Grey",
+        "canonical": "#0f172a",
+        "darkCanonical": "#e2e8f0",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#e2e8f0", "#f8fafc"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper White / Harbor Panel",
+        "canonical": "#ffffff",
+        "darkCanonical": "#101a2c",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#e2e8f0", "#ffffff"]
+      },
+      "surface-muted": {
+        "role": "neutral",
+        "displayName": "Fog Bank / Deep Panel",
+        "canonical": "#eef2f6",
+        "darkCanonical": "#16223a",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#e2e8f0", "#eef2f6"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Quiet Line / Dim Line",
+        "canonical": "#e2e8f0",
+        "darkCanonical": "#1e293b",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#e2e8f0", "#f8fafc"]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Harbor Mist Text / Faint Signal Text",
+        "canonical": "#475569",
+        "darkCanonical": "#94a3b8",
+        "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#64748b", "#94a3b8", "#e2e8f0", "#f8fafc"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name only, one instance per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles, always centered." },
+      "title": { "displayName": "Title", "purpose": "Card-level headings (experience role, card primary line)." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, capped ~65-75ch." },
+      "label": { "displayName": "Label", "purpose": "Eyebrow text, category headers, badges — paired with accent or muted-foreground." }
+    },
+    "shadows": [
+      { "name": "hero-portrait", "value": "shadow-xl (0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1))", "purpose": "The single deliberate shadow in the system — lifts the hero portrait frame only." }
+    ],
+    "motion": [
+      { "name": "scroll-reveal", "value": "opacity 0->1, translateY 16px->0, duration 0.4-0.5s, viewport once:true", "purpose": "Section and card entrance as the visitor scrolls to them." },
+      { "name": "hero-blob-drift", "value": "scale [1,1.15,1], opacity [0.5,0.8,0.5], duration 10-12s, repeat Infinity, ease easeInOut", "purpose": "Ambient background motion behind the hero, the only continuous/looping animation in the system." },
+      { "name": "hover-lift", "value": "translateY -4px", "purpose": "Card and hobby-tile hover." },
+      { "name": "hover-scale", "value": "scale 1.05", "purpose": "Primary button hover." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid accent CTA — used once per section at most (e.g. hero 'Download CV').",
+      "html": "<button class=\"ds-btn-primary\">Download CV</button>",
+      "css": ".ds-btn-primary { background: #0891b2; color: #ffffff; font-weight: 600; font-size: 14px; padding: 10px 20px; border: none; border-radius: 9999px; cursor: pointer; transition: transform 0.2s ease; } .ds-btn-primary:hover { transform: scale(1.05); } .ds-btn-primary:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outline CTA — paired next to a primary button (e.g. 'Contact me').",
+      "html": "<button class=\"ds-btn-secondary\">Contact me</button>",
+      "css": ".ds-btn-secondary { background: #ffffff; color: #0f172a; font-weight: 600; font-size: 14px; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 9999px; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; } .ds-btn-secondary:hover { border-color: #0891b2; color: #0891b2; } .ds-btn-secondary:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }"
+    },
+    {
+      "name": "Skill Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Small pill tag for a skill/technology name; inverts to solid accent on hover.",
+      "html": "<span class=\"ds-chip\">TypeScript</span>",
+      "css": ".ds-chip { display: inline-block; background: #eef2f6; color: #0f172a; font-size: 14px; padding: 4px 12px; border-radius: 9999px; transition: background 0.2s ease, color 0.2s ease; } .ds-chip:hover { background: #0891b2; color: #ffffff; }"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Generic bordered container used for skill categories, hobbies, contact links.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Frontend</h3><p class=\"ds-card-body\">React, Next.js, Angular</p></div>",
+      "css": ".ds-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; } .ds-card-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #0891b2; margin: 0 0 12px; } .ds-card-body { font-size: 16px; color: #475569; margin: 0; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky-nav anchor link with active/inactive/hover states driven by scroll position.",
+      "html": "<button class=\"ds-nav-link ds-nav-link--active\">About</button>",
+      "css": ".ds-nav-link { background: none; border: none; font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 9999px; color: #475569; cursor: pointer; transition: color 0.2s ease; } .ds-nav-link:hover { color: #0f172a; } .ds-nav-link--active { color: #0891b2; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Night Harbor",
+    "overview": "The system reads as a calm, deep-navy harbor at night with a single cyan beacon cutting through it. Nearly every surface sits in a narrow band of navy-to-slate neutrals; the one saturated color in the entire palette — Beacon Cyan — is spent deliberately, on the handful of moments that should catch the eye: the active nav link, a primary button, an icon, a category label. Waves (literal inline SVG dividers) recur between sections, a direct nod to the harbor metaphor and to Jorge's own \"Team Leader\" positioning: someone who guides, doesn't just build.\n\nThe system is confident and precise rather than decorative. Structure comes from 1px borders and background-tone contrast, not shadows — depth is earned, not applied by default. Motion is purposeful and restrained: sections fade and lift into place once as the visitor scrolls past them, never on a loop, and the hero's ambient blob drift is the only continuous animation in the system.\n\nLight and dark are equally first-class — the palette was designed dark-first (it's most itself at night) but every token ships as a matched pair, and nothing about the system assumes one mode is \"default.\"",
+    "keyCharacteristics": [
+      "One accent color (Beacon Cyan), spent rarely, never as a fill for large areas.",
+      "Flat by default; exactly one deliberate shadow in the whole system (the hero portrait frame).",
+      "Two radius families only: fully-rounded pills for anything interactive, 16px for content cards.",
+      "A single typeface (Inter) carries display, body, and label roles — hierarchy comes from size/weight, not a second family.",
+      "Wave dividers are the system's one recurring decorative signature."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Beacon Cyan appears on nav highlights, one button per view, icons, and labels — never as a background fill larger than a chip. If a design needs \"more color,\" reach for surface/surface-muted contrast, not more cyan.", "section": "colors" },
+      { "name": "The Paired Palette Rule", "body": "Every token ships as a light/dark pair that swaps together via the .dark class. Never hand-pick just one half of a pair for a new component.", "section": "colors" },
+      { "name": "The Single Voice Rule", "body": "Inter carries every role. A second typeface is never introduced for \"personality\" — personality comes from color and motion instead.", "section": "typography" },
+      { "name": "The Alternating Tide Rule", "body": "Consecutive sections alternate between background and surface tone. This is the only seam between sections other than the wave dividers — there is never a hard border between two stacked sections.", "section": "layout" },
+      { "name": "The One Shadow Rule", "body": "Exactly one shadow exists in the system: a soft shadow-xl on the hero's circular portrait frame. It is not a pattern to extend to cards, buttons, or anything else.", "section": "elevation" },
+      { "name": "The Pill-or-Panel Rule", "body": "Every interactive or atomic element is fully rounded (pill/circle). Every content container uses one consistent 16px radius. No other radius value is used anywhere.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do spend Beacon Cyan rarely and deliberately — one nav highlight, one primary action, an icon, a label.",
+      "Do alternate background/surface tone section-by-section instead of adding a divider line between sections.",
+      "Do use pill radius for anything a visitor clicks or toggles, and the 16px card radius for anything a visitor reads inside.",
+      "Do keep all motion purposeful and respect prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't add a second shadow anywhere.",
+      "Don't introduce a second typeface.",
+      "Don't use Beacon Cyan as a background fill for anything larger than a chip or button.",
+      "Don't put a solid border between two stacked sections."
+    ]
+  }
+}
