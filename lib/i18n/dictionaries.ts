@@ -38,6 +38,8 @@ export type Dictionary = {
   };
   experience: {
     title: string;
+    showMore: string;
+    showLess: string;
   };
   projects: {
     title: string;
@@ -133,6 +135,8 @@ export const dictionaries: Record<"en" | "es", Dictionary> = {
     },
     experience: {
       title: "Experience",
+      showMore: "Show more",
+      showLess: "Show less",
     },
     projects: {
       title: "Projects",
@@ -235,6 +239,8 @@ export const dictionaries: Record<"en" | "es", Dictionary> = {
     },
     experience: {
       title: "Experiencia",
+      showMore: "Ver más",
+      showLess: "Ver menos",
     },
     projects: {
       title: "Proyectos",

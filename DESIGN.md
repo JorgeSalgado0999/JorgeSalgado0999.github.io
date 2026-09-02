@@ -190,6 +190,9 @@ A single muted row at the bottom of the hero, below the fold line but still in t
 ### Browser Chrome
 Text selection, focus rings, and the text caret are themed from `accent`/`accent-foreground` globally (`::selection`, `:focus-visible`, `caret-color`) rather than left at browser defaults. Any new interactive element inherits this automatically — don't override `:focus-visible` locally unless the element sits on a surface where `accent` genuinely fails contrast.
 
+### Experience Accordion
+Each Experience entry keeps its condensed one-line description always visible, with an `accent`-colored "Show more" / "Show less" text button (chevron rotates 180° on open) that reveals 3-4 fuller bullet points sourced from the résumé, using the same dot-bullet style as the Skills section's soft-skills list for consistency. Height animates via Framer Motion (`height: 0 → auto`, gated by `useReducedMotion()`), each entry expands independently. Every bullet must trace back to `PRODUCT.md`'s résumé-backed evidence — same guardrail as the Credibility Strip.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -207,3 +210,4 @@ Text selection, focus rings, and the text caret are themed from `accent`/`accent
 - **Don't** rely on the global `prefers-reduced-motion` CSS override alone for Framer Motion elements — it catches plain CSS `animation`/`transition`, not Framer's JS-driven transforms. Gate those explicitly with `useReducedMotion()`, as the hero reveal does.
 - **Don't** reuse the hero's bracket-wipe-and-cursor treatment on any other heading — see The One Typed Moment Rule above.
 - **Don't** add an item to the Credibility Strip that isn't already documented as real evidence in `PRODUCT.md`.
+- **Don't** add an Experience Accordion bullet that isn't already documented in `PRODUCT.md`'s résumé-backed evidence — same guardrail, same reason.
